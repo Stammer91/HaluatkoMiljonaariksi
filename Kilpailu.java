@@ -126,7 +126,8 @@ public class Kilpailu {
              System.out.println("\nOlen pahoillani, Vastaus oli v‰‰rin! Oikea vastaus oli: "+vastaus);
              System.out.println("Voitit $" + arvo +"\n");
              Highscores.Highscore(arvo, nimi);
-             Highscores.Restart(again);;
+             System.out.print("Haluatko aloittaa uuden pelin? <y/n> \n");	        
+ 			again = in.nextLine().charAt(0);
           }
           else if (OikeinV‰‰rin == false&&arvo!=100)
           {
@@ -135,14 +136,16 @@ public class Kilpailu {
              System.out.println("\nOlen pahoillani, Vastaus oli v‰‰rin! Oikea vastaus oli: "+vastaus);
              System.out.println("Voitit $" + arvo +"\n");
              Highscores.Highscore(arvo, nimi);
-             Highscores.Restart(again);
+             System.out.print("Haluatko aloittaa uuden pelin? <y/n> \n");	        
+ 			again = in.nextLine().charAt(0);
           }
           else if (OikeinV‰‰rin == false&&K‰ytt‰j‰.compareTo("F")==0)
           {
              System.out.println("\nP‰‰tit lopettaa pelin! Oikea vastaus oli: "+vastaus);
              System.out.println("Voitit $" + arvo +"\n");
              Highscores.Highscore(arvo, nimi);
-             Highscores.Restart(again);
+             System.out.print("Haluatko aloittaa uuden pelin? <y/n> \n");	        
+ 			again = in.nextLine().charAt(0);
           }
           if (OikeinV‰‰rin == true&&arvo!=1000000)
           {
@@ -155,7 +158,8 @@ public class Kilpailu {
              System.out.println("Onneksi olkoon!!! Olet voittanut Haluatko miljon‰‰riksi ja $1000000!\n");
              OikeinV‰‰rin = false;
              Highscores.Highscore(arvo, nimi);
-             Highscores.Restart(again);
+             System.out.print("Haluatko aloittaa uuden pelin? <y/n> \n");	        
+ 			again = in.nextLine().charAt(0);
           }
 	      }  while (OikeinV‰‰rin != false && arvo<=1000000 && Lopeta!=true);
          

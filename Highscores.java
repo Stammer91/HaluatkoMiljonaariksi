@@ -38,10 +38,4 @@ public class Highscores {
 			}
 		return false; 
 		}
-	
-	public static void Restart(char again) {
-        System.out.print("Haluatko aloittaa uuden pelin? <y/n> \n");
-        Scanner in = new Scanner (System.in);
-		again = in.nextLine().charAt(0);
-	}
 }

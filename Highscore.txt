@@ -1,9 +1,3 @@
-Sami: 400
-Sami2: 700
-Sami3: 100
-SaMi: 0
-sami111: 0
-asdasd: 100
-asdasdadsasd: 0
-Sami: 60000
-adasdasdasdasd: 1000
+Test1: 100
+Test2: 0
+Test3: 60000
