@@ -4,3 +4,6 @@ Sami3: 100
 SaMi: 0
 sami111: 0
 asdasd: 100
+asdasdadsasd: 0
+Sami: 60000
+adasdasdasdasd: 1000

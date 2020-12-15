@@ -6,15 +6,20 @@ public class Kilpailu {
 	
 	public static void main(String[] args) throws IOException {
 		
-	       Highscores Leaderboard = new Highscores();
+	     Highscores Leaderboard = new Highscores();
 		
+	       
 		Scanner in = new Scanner (System.in);
+		
+		
 		
 	    int arvo = 100;
 
 		int arvot [] = new int [] {100, 300, 500, 700, 1000, 2000, 3000, 5000, 7000, 10000, 15000, 30000, 60000, 200000, 1000000};
 
 		int laske = 0;
+		
+		
 		
 	    String kysymys ="", A ="", B = "", C = "", D = "", vastaus="", K‰ytt‰j‰="";
 
@@ -23,6 +28,11 @@ public class Kilpailu {
 	    boolean Lopeta = false;
 	    
 		String nimi = null;
+		
+		char again = 'y';
+		while(again == 'y')
+		{
+
 		
 		for (int i = 0; i<1; i++)
 	      {
@@ -45,7 +55,9 @@ public class Kilpailu {
 	                	nimi = in.nextLine();
 	                	
 	                		if (nimi.equals("leaderboard")) {
-	                			Leaderboard.Leaderboard(nimi);
+	                			Leaderboard.Leaderboard(nimi);	                			
+	                			System.out.print("\nHaluatko aloittaa pelin? <y/n> \n");	        
+	                			again = in.nextLine().charAt(0);
 	                			break;
 	                	}
 	                	
@@ -114,6 +126,7 @@ public class Kilpailu {
              System.out.println("\nOlen pahoillani, Vastaus oli v‰‰rin! Oikea vastaus oli: "+vastaus);
              System.out.println("Voitit $" + arvo +"\n");
              Highscores.Highscore(arvo, nimi);
+             Highscores.Restart(again);;
           }
           else if (OikeinV‰‰rin == false&&arvo!=100)
           {
@@ -122,12 +135,14 @@ public class Kilpailu {
              System.out.println("\nOlen pahoillani, Vastaus oli v‰‰rin! Oikea vastaus oli: "+vastaus);
              System.out.println("Voitit $" + arvo +"\n");
              Highscores.Highscore(arvo, nimi);
+             Highscores.Restart(again);
           }
           else if (OikeinV‰‰rin == false&&K‰ytt‰j‰.compareTo("F")==0)
           {
              System.out.println("\nP‰‰tit lopettaa pelin! Oikea vastaus oli: "+vastaus);
              System.out.println("Voitit $" + arvo +"\n");
              Highscores.Highscore(arvo, nimi);
+             Highscores.Restart(again);
           }
           if (OikeinV‰‰rin == true&&arvo!=1000000)
           {
@@ -140,9 +155,11 @@ public class Kilpailu {
              System.out.println("Onneksi olkoon!!! Olet voittanut Haluatko miljon‰‰riksi ja $1000000!\n");
              OikeinV‰‰rin = false;
              Highscores.Highscore(arvo, nimi);
+             Highscores.Restart(again);
           }
 	      }  while (OikeinV‰‰rin != false && arvo<=1000000 && Lopeta!=true);
          
-	  }
-   }
+	      }
+		}
+	}
 }

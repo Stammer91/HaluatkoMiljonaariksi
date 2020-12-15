@@ -5,6 +5,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Map;
+import java.util.Scanner;
 import java.util.TreeMap;
 
 public class Highscores {
@@ -37,4 +38,10 @@ public class Highscores {
 			}
 		return false; 
 		}
+	
+	public static void Restart(char again) {
+        System.out.print("Haluatko aloittaa uuden pelin? <y/n> \n");
+        Scanner in = new Scanner (System.in);
+		again = in.nextLine().charAt(0);
+	}
 }
