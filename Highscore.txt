@@ -1,0 +1,6 @@
+Sami: 400
+Sami2: 700
+Sami3: 100
+SaMi: 0
+sami111: 0
+asdasd: 100

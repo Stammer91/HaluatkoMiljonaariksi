@@ -4,7 +4,9 @@ public class Kilpailu {
 	
 	static Kysymykset kysymysclass[] = new Kysymykset[4];
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
+		
+	       Highscores Leaderboard = new Highscores();
 		
 		Scanner in = new Scanner (System.in);
 		
@@ -20,7 +22,7 @@ public class Kilpailu {
 
 	    boolean Lopeta = false;
 	    
-		String nimi;
+		String nimi = null;
 		
 		for (int i = 0; i<1; i++)
 	      {
@@ -30,7 +32,8 @@ public class Kilpailu {
 	      
 		 System.out.println("\t\t-----------------------");
 	      System.out.println("\t\tHaluatko Miljonääriksi?");
-	      System.out.println("\t\t-----------------------\t\t\t\t\t\t\t\tVastaukset:A,B,C,D & Pelin lopetus = F");
+	      System.out.println("\t\t-----------------------\t\t\t\t\t\t\t\tVastaukset:A,B,C,D & Pelin lopetus = F"
+	      		+ "\n\t\t\t\t\t\t\t\t\t\t\t\tKirjoita 'leaderboard' nähdäksesi aiemmat tulokset");
 	      
 	      laske = 0;
 	      Lopeta = false;
@@ -40,16 +43,23 @@ public class Kilpailu {
 	                {
 	                	System.out.println("Nimi:");
 	                	nimi = in.nextLine();
-	                   System.out.println("\n\n" + nimi + ", On vuorosi pelata!..... Haluatko miljonääriksi!\n");
+	                	
+	                		if (nimi.equals("leaderboard")) {
+	                			Leaderboard.Leaderboard(nimi);
+	                			break;
+	                	}
+	                	
+	                  System.out.println("\n\n" + nimi + ", On vuorosi pelata!..... Haluatko miljonääriksi!\n");
 	                }
-	             
+
+	                
 	                for (int j = 1; j<=7; j++) // Looppi ja getterit
 	                {
 	                	 if (j == 1)
 	                	 {
 		                    
 							kysymys = kysymysclass[i].getKysymys();
-		                      System.out.println("Voittaaksesi "+arvo+"$ \n\n"+kysymys);
+		                      System.out.println("Voittaaksesi $"+arvo+"\n\n"+kysymys);
 		                   }
 	                	 if (j == 1)
 		                   {
@@ -98,17 +108,26 @@ public class Kilpailu {
           {
              OikeinVäärin = false;
           }
-          if (OikeinVäärin == false&&Käyttäjä.compareTo("F")!=0)
+          if (OikeinVäärin == false&&arvo==100)
+          {
+        	  arvo = 0;
+             System.out.println("\nOlen pahoillani, Vastaus oli väärin! Oikea vastaus oli: "+vastaus);
+             System.out.println("Voitit $" + arvo +"\n");
+             Highscores.Highscore(arvo, nimi);
+          }
+          else if (OikeinVäärin == false&&arvo!=100)
           {
         	  arvo = arvot[laske-1];
         	  laske--;
              System.out.println("\nOlen pahoillani, Vastaus oli väärin! Oikea vastaus oli: "+vastaus);
-             System.out.println("Voitit " + arvo +"$\n");
+             System.out.println("Voitit $" + arvo +"\n");
+             Highscores.Highscore(arvo, nimi);
           }
           else if (OikeinVäärin == false&&Käyttäjä.compareTo("F")==0)
           {
              System.out.println("\nPäätit lopettaa pelin! Oikea vastaus oli: "+vastaus);
-             System.out.println("Voitit " + arvo +"$\n");
+             System.out.println("Voitit $" + arvo +"\n");
+             Highscores.Highscore(arvo, nimi);
           }
           if (OikeinVäärin == true&&arvo!=1000000)
           {
@@ -118,8 +137,9 @@ public class Kilpailu {
           }
           else if (OikeinVäärin == true&&arvo==1000000)
           {
-             System.out.println("Onneksi olkoon!!! Olet voittanut Haluatko miljonääriksi ja 1000000$!\n");
+             System.out.println("Onneksi olkoon!!! Olet voittanut Haluatko miljonääriksi ja $1000000!\n");
              OikeinVäärin = false;
+             Highscores.Highscore(arvo, nimi);
           }
 	      }  while (OikeinVäärin != false && arvo<=1000000 && Lopeta!=true);
          

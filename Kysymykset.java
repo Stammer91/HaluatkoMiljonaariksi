@@ -14,7 +14,7 @@ public class Kysymykset {
 	{
 		try
 		{
-			file = new FileReader("src/Kysymys.txt");
+			file = new FileReader("Kysymys.txt");
 			br = new BufferedReader(file);
 		}
 		catch (IOException e)
@@ -22,7 +22,6 @@ public class Kysymykset {
 			
 		}
 	}
-	
 	   public String getKysymys()
 	      {
 	         try
@@ -104,7 +103,7 @@ class ResetKysymykset extends Kysymykset {
 		{
 			file.close();
 			br.close();
-			file = new FileReader("src/Kysymys.txt");
+			file = new FileReader("Kysymys.txt");
 			br = new BufferedReader(file);
 		}
 		catch (IOException e)
